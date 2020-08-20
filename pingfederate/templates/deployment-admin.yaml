@@ -27,7 +27,7 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{ if not .Values.license.useDevOpsKey }}
+        {{ if not .Values.global.useDevOpsKey }}
         volumeMounts:
         - name: license
           mountPath: /opt/in/instance/server/default/conf/pingfederate.lic
@@ -88,7 +88,7 @@ spec:
       tolerations:
 {{ toYaml .Values.admin.tolerations | indent 8 }}
     {{- end }}
-    {{- if not .Values.license.useDevOpsKey }}
+    {{- if not .Values.global.useDevOpsKey }}
       volumes:
       - name: license
         secret:

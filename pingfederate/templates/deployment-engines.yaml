@@ -89,7 +89,7 @@ spec:
       tolerations:
 {{ toYaml .Values.engine.tolerations | indent 8 }}
     {{- end }}
-    {{- if not .Values.license.useDevOpsKey }}
+    {{- if not .Values.global.useDevOpsKey }}
       volumes:
       - name: license
         secret:

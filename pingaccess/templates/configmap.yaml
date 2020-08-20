@@ -8,6 +8,6 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   name: {{ include "pingaccess.fullname" . }}-env-vars
 data:
-  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.acceptEULA | quote  }}
+  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.acceptEULA  }}
   PA_LOG_LEVEL: {{ .Values.pingaccess.logging | quote }}
 {{ toYaml .Values.pingaccess.envs | indent 2 }}

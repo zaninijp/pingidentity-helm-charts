@@ -10,3 +10,4 @@ data:
   USER_BASE_DN: {{ .Values.global.USER_BASE_DN | quote }}
   PF_BASE_URL: "https://{{ .Values.global.VIRTUAL_HOSTNAME }}"
   PF_ADMIN_PORT: {{ .Values.pingfederate.service.admin.port | quote }}
+  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.acceptEULA | quote }}
