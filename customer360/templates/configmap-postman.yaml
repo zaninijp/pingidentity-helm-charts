@@ -25,7 +25,7 @@ data:
             },
             {
                 "key": "sdkAppId",
-                "value": {{ .Values.global.sdkAppId | quote }},
+                "value": {{ .Values.global.PINGIDSDK_APPID | quote }},
                 "enabled": true
             }
         ],
