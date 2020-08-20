@@ -3,7 +3,7 @@ global:
   # Using the devops key is best suited to development or sandbox environments.  In other cases create a license secret
   useDevOpsKey: true
   devOpsKey: 
-    user: "AnyOldThing"
+    user: "Your Ping DevOps Username"
     key: "Your Ping DevOps Key"
   acceptEULA: "YES"
   # Ping Global Values
