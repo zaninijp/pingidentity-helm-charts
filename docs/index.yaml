@@ -3,7 +3,7 @@ entries:
   customer360:
   - apiVersion: v2
     appVersion: 2.0.0
-    created: "2020-08-20T15:20:33.298942-07:00"
+    created: "2020-08-20T15:39:05.63302-07:00"
     dependencies:
     - name: pingdirectory
       repository: '@pingidentity-cp'
@@ -15,7 +15,7 @@ entries:
       repository: '@pingidentity-cp'
       version: ^0.1.2
     description: A Helm chart to deploy Ping Customer360 into a Kubernetes cluster
-    digest: 0dacb16c3d507f601e1ae30501f226553da54ad8b30d82e0e1e69fcaf84c45df
+    digest: f7892bff0e26bff4db713001244bfe8a67fe06d30faff9e1784d33228fb2727a
     name: customer360
     type: application
     urls:
@@ -24,9 +24,9 @@ entries:
   pingaccess:
   - apiVersion: v1
     appVersion: 6.1.0
-    created: "2020-08-20T15:20:33.29959-07:00"
+    created: "2020-08-20T15:39:05.633814-07:00"
     description: A Sample PingAccess Helm chart
-    digest: b0bdd4b8a40df0088f93dd30bfcc9ddae346d5c1c83d6f9fb1d15aea0112f1dc
+    digest: f23b12be5403452b96ef4aadfa23d048df96cd5d1680cf7d90fb24a74aeba681
     home: https://www.pingidentity.com/
     name: pingaccess
     sources:
@@ -39,9 +39,9 @@ entries:
   pingdirectory:
   - apiVersion: v1
     appVersion: 8.1.0
-    created: "2020-08-20T15:20:33.300281-07:00"
+    created: "2020-08-20T15:39:05.634646-07:00"
     description: A Sample PingDirectory Helm chart
-    digest: 51b11820b5bcdbffc945bb7dcf1a1237623766361baeb814e2cbdd211286f47f
+    digest: ad47dec113976b336227a37244cdff641553ca13761788d11af9d98a2a583cc8
     home: https://www.pingidentity.com/
     name: pingdirectory
     sources:
@@ -54,9 +54,9 @@ entries:
   pingfederate:
   - apiVersion: v1
     appVersion: 10.1.0
-    created: "2020-08-20T15:20:33.301168-07:00"
+    created: "2020-08-20T15:39:05.635642-07:00"
     description: A Sample PingFederate Helm chart with clustering
-    digest: de216d30bdee4f2df36766552d9363fca499c8e49a1cfc584a8d45de1c5331d9
+    digest: 3c54ebae1307cf25bbad4f49b51734740372b8abe5904ac78fb50dd11d7817c6
     home: https://www.pingidentity.com/
     name: pingfederate
     sources:
@@ -66,4 +66,4 @@ entries:
     urls:
     - pingfederate-0.3.2.tgz
     version: 0.3.2
-generated: "2020-08-20T15:20:33.295687-07:00"
+generated: "2020-08-20T15:39:05.628609-07:00"
