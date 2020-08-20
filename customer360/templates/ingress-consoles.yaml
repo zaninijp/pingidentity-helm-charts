@@ -24,7 +24,7 @@ spec:
       paths:
        - backend:
           serviceName: pingfederate
-          servicePort: {{ .Values.pingfederate.pingfederate.envs.PF_ADMIN_PORT }}
+          servicePort: {{ .Values.pingfederate.pingfederate.service.admin.port }}
   # This rule gives external access to the PingData Admin Console
   - host: pingdataconsole-{{ .Release.Namespace }}.ping-devops.com
     http:
