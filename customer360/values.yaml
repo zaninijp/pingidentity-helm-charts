@@ -1,0 +1,77 @@
+# Default values for Customer360.
+global:
+  # Using the devops key is best suited to development or sandbox environments.  In other cases create a license secret
+  useDevOpsKey: true
+  devOpsKey: 
+    user: {{Your Ping DevOps User}}
+    key: {{Your Ping DevOps Key}}
+  acceptEULA: "YES"
+  # Ping Global Values
+  PING_IDENTITY_PASSWORD: {{Global Ping Password}}
+  # Admin Console OIDC -- Configured for Compass
+  ADMIN_CLIENT_ID: {{Your Admin SSO Client_ID}}
+  ADMIN_CLIENT_SECRET: {{Your Admin SSO Client_Secret}}
+  ADMIN_CLIENT_ISSUER: {{Your Admin SSO Client_Issuer}}
+  # Hosting Environment
+  VIRTUAL_HOSTNAME: {{Your Virtual Hostname FQDN}}
+
+# Product variables
+pingdirectory:
+  pingdirectory:
+    envs:
+      SERVER_PROFILE_BRANCH: master
+      SERVER_PROFILE_URL: https://github.com/cprice-ping/Customer360.git
+      SERVER_PROFILE_PATH: pingdirectory
+      MAX_HEAP_SIZE: 768m
+      USER_BASE_DN: dc=customer360.com
+      PF_BASE_URL: https://demo.cpricelab.com
+  logging: DEBUG
+  persistentvolume:
+    enabled: false
+  license:
+    # Used if `useDevOpsKey` set to false
+    useDevOpsKey: true
+    licenseSecretName: pingdirectory-license
+
+pingfederate:
+  pingfederate:
+    envs:
+      SERVER_PROFILE_BRANCH: master
+      SERVER_PROFILE_URL: https://github.com/cprice-ping/Customer360.git
+      SERVER_PROFILE_PATH: pingfederate
+      # PingFed Chart uses a PARENT - these lines remove it
+      SERVER_PROFILE_PARENT: ""
+      # Used for the OIDC SSO - `redirect_uri` will be set to https://PF_ADMIN_HOSTNAME:PF_ADMIN_PORT
+      PF_ADMIN_PORT: "443"
+      PF_ADMIN_MODE: "OIDC"
+      # PingID SDK App is REQUIRED by Customer360
+      PINGIDSDK_APP: {{Your PingID SDK AppID}}
+  logging: DEBUG
+  persistentvolume:
+    enabled: false
+  license:
+    useDevOpsKey: true
+    licenseSecretName: pingfederate-license
+  service:
+    type: ClusterIP
+    admin:
+      port: 443
+      name: pf-admin
+    engine:
+      port: 9031
+      name: pf-engine 
+
+pingaccess:
+  pingaccess:
+    logging: INFO
+    envs:
+      SERVER_PROFILE_URL: ""
+      SERVER_PROFILE_PATH: ""
+      SERVER_PROFILE_BRANCH: ""
+
+  license:
+    useDevOpsKey: true
+    licenseSecretName: pingaccess-license
+
+# PingCentral -- configures OIDC logon automatically
+# PING_CENTRAL_LOG_LEVEL: DEBUG

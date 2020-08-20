@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Release.Namespace }}-env-vars"
+data:
+  ADMIN_CLIENT_AUTHZ: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/authorize"
+  ADMIN_CLIENT_TOKEN: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/token"
+  ADMIN_CLIENT_USERINFO: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/userinfo"
+  ADMIN_CLIENT_LOGOFF: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/signoff"

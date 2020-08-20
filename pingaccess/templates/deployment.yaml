@@ -24,7 +24,7 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{ if not .Values.license.useDevOpsKey }}
+        {{ if not .Values.global.useDevOpsKey }}
         volumeMounts:
         - name: license
           mountPath: /opt/in/instance/conf/pingaccess.lic
@@ -36,6 +36,8 @@ spec:
         - containerPort: {{ .Values.service.runtime.port }}
           name: {{ .Values.service.runtime.name }}
         envFrom:
+        - configMapRef:
+            name: {{ .Release.Namespace }}-env-vars
         - configMapRef:
             name: {{ include "pingaccess.fullname" . }}-env-vars
         - secretRef:
@@ -66,7 +68,7 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
     {{- end }}
-    {{- if not .Values.license.useDevOpsKey }}
+    {{- if not .Values.global.useDevOpsKey }}
       volumes:
       - name: license
         secret:

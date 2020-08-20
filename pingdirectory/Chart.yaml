@@ -2,9 +2,9 @@ apiVersion: v1
 appVersion: "8.1.0"
 description: A Sample PingDirectory Helm chart
 name: pingdirectory
-version: 0.1.2
+version: 0.1.4
 home: https://www.pingidentity.com/
 sources:
-- https://github.com/patrickcping/pingidentity-helm-charts
+- https://github.com/cprice-ping/pingidentity-helm-charts
 - https://github.com/pingidentity/pingidentity-docker-builds
 - https://github.com/pingidentity/pingidentity-server-profiles

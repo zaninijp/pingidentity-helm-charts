@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-postman-configmap
+data:
+  postman_vars.json: |
+    {
+        "id": "40199d03-d15c-47e4-b502-8b62f98479d1",
+        "name": "Solution-Customer360",
+        "values": [
+            {
+                "key": "pfAdminURL",
+                "value": "https://{{ .Release.Name }}-pingfederate:{{ .Values.pingfederate.pingfederate.envs.PF_ADMIN_PORT }}",
+                "enabled": true
+            },
+            {
+                "key": "pfBaseURL",
+                "value": "https://{{ .Values.global.VIRTUAL_HOSTNAME }}",
+                "enabled": true
+            },
+            {
+                "key": "pingIdSdk",
+                "value": {{ .Files.Get "./pingidsdk.properties" | quote }},
+                "enabled": true
+            }
+        ],
+        "_postman_variable_scope": "environment"
+    }

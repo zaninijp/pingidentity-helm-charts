@@ -28,14 +28,14 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{- if or (.Values.persistentvolume.enabled) (not .Values.license.useDevOpsKey) }}
+        {{- if or (.Values.persistentvolume.enabled) (not .Values.global.useDevOpsKey) }}
         volumeMounts:
         {{- end }}
         {{- if .Values.persistentvolume.enabled }}
         - name: out-dir-{{ .Release.Name }}-{{ .Release.Revision }}
           mountPath: /opt/out
         {{- end }}
-        {{- if not .Values.license.useDevOpsKey }}
+        {{- if not .Values.global.useDevOpsKey }}
         - name: license
           mountPath: /opt/in/instance/pingdirectory.lic
           subPath: pingdirectory.lic
@@ -78,7 +78,7 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
     {{- end }}
-    {{- if or (.Values.persistentvolume.enabled) (not .Values.license.useDevOpsKey) }}
+    {{- if or (.Values.persistentvolume.enabled) (not .Values.global.useDevOpsKey) }}
       volumes:
       {{- end }}
       {{- if .Values.persistentvolume.enabled }}
@@ -86,7 +86,7 @@ spec:
         persistentVolumeClaim:
           claimName: out-dir-{{ .Release.Name }}-{{ .Release.Revision }}
       {{- end }}
-      {{- if not .Values.license.useDevOpsKey }}
+      {{- if not .Values.global.useDevOpsKey }}
       - name: license
         secret:
           secretName: {{ .Values.license.licenseSecretName }}

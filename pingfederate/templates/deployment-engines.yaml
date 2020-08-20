@@ -33,7 +33,7 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{ if not .Values.license.useDevOpsKey }}
+        {{ if not .Values.global.useDevOpsKey }}
         volumeMounts:
         - name: license
           mountPath: /opt/in/instance/server/default/conf/pingfederate.lic
@@ -50,6 +50,8 @@ spec:
         - name: OPERATIONAL_MODE
           value: CLUSTERED_ENGINE
         envFrom:
+        - configMapRef:
+            name: {{ .Release.Namespace }}-env-vars
         - configMapRef:
             name: {{ include "pingfederate.fullname" . }}-env-vars
         - secretRef:

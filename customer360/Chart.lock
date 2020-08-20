@@ -1,0 +1,12 @@
+dependencies:
+- name: pingdirectory
+  repository: https://cprice-ping.github.io/pingidentity-helm-charts/
+  version: 0.1.4
+- name: pingfederate
+  repository: https://cprice-ping.github.io/pingidentity-helm-charts/
+  version: 0.3.1
+- name: pingaccess
+  repository: https://cprice-ping.github.io/pingidentity-helm-charts/
+  version: 0.1.1
+digest: sha256:029bbabd1b2a67dd0e38f08d173912b4a4c91f13008ed7cf5128f814047da59f
+generated: "2020-08-20T06:46:28.811335-07:00"
