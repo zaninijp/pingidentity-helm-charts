@@ -3,7 +3,7 @@ entries:
   customer360:
   - apiVersion: v2
     appVersion: 2.0.0
-    created: "2020-08-20T10:15:15.643103-07:00"
+    created: "2020-08-20T10:23:16.168542-07:00"
     dependencies:
     - name: pingdirectory
       repository: '@pingidentity-cp'
@@ -24,9 +24,9 @@ entries:
   pingaccess:
   - apiVersion: v1
     appVersion: 6.1.0
-    created: "2020-08-20T10:15:15.645311-07:00"
+    created: "2020-08-20T10:23:16.170143-07:00"
     description: A Sample PingAccess Helm chart
-    digest: 1128b2d33b9726173983b1fe2fc11be3660b1904a86fdcf1a33109502719dc04
+    digest: 8e12f9d5ba60f5db7eb94fbca4b155922c6b827e203cd2c1c5933e059fed220f
     home: https://www.pingidentity.com/
     name: pingaccess
     sources:
@@ -39,7 +39,7 @@ entries:
   pingdirectory:
   - apiVersion: v1
     appVersion: 8.1.0
-    created: "2020-08-20T10:15:15.647389-07:00"
+    created: "2020-08-20T10:23:16.171379-07:00"
     description: A Sample PingDirectory Helm chart
     digest: 8cb56df381549a304d32cee28fadccc4af435be9b11dee9063ae104b749ccec7
     home: https://www.pingidentity.com/
@@ -54,7 +54,7 @@ entries:
   pingfederate:
   - apiVersion: v1
     appVersion: 10.1.0
-    created: "2020-08-20T10:15:15.649064-07:00"
+    created: "2020-08-20T10:23:16.172915-07:00"
     description: A Sample PingFederate Helm chart with clustering
     digest: a6f0e60b58bc2456512f1c92bb9f96b106c41559e848a268cf0adf4c49767b7f
     home: https://www.pingidentity.com/
@@ -66,4 +66,4 @@ entries:
     urls:
     - pingfederate-0.3.1.tgz
     version: 0.3.1
-generated: "2020-08-20T10:15:15.639492-07:00"
+generated: "2020-08-20T10:23:16.165492-07:00"
