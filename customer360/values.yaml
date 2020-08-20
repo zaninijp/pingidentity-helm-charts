@@ -66,12 +66,11 @@ pingaccess:
   pingaccess:
     logging: INFO
     envs:
-      SERVER_PROFILE_URL: ""
-      SERVER_PROFILE_PATH: ""
-      SERVER_PROFILE_BRANCH: ""
+      SERVER_PROFILE_URL: https://github.com/pingidentity/Customer360.git 
+      SERVER_PROFILE_PATH: pingaccess
+      SERVER_PROFILE_BRANCH: master
   license:
-    # Used if `useDevOpsKey` set to false
-    licenseSecretName: pingaccess-license
+    licenseSecretName: pingaccess-license 
 
 # PingCentral -- configures OIDC logon automatically
 # PING_CENTRAL_LOG_LEVEL: DEBUG
