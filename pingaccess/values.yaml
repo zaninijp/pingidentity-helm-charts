@@ -20,7 +20,7 @@ pingaccess:
     SERVER_PROFILE_BRANCH: master
 
 license:
-  acceptEULA: false
+  acceptEULA: no
   licenseSecretName: pingaccess-license
   # Using the devops key is best suited to development or sandbox environments.  In other cases create a license secret
   useDevOpsKey: false
