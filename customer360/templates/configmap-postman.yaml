@@ -20,7 +20,7 @@ data:
             },
             {
                 "key": "pingIdSdk",
-                "value": {{ .Files.Get PINGIDSDK | quote }},
+                "value": {{ .Values.pingidsdk | quote }},
                 "enabled": true
             }
         ],
