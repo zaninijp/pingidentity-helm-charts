@@ -11,3 +11,4 @@ data:
   PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.acceptEULA | quote  }}
   PD_LOG_LEVEL: {{ .Values.pingdirectory.logging | quote }}
 {{ toYaml .Values.pingdirectory.envs | indent 2 }}
+{{ toYaml .Values.global | indent 2 }}
