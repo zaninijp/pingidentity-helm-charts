@@ -49,9 +49,9 @@ spec:
           name: {{ .Values.service.ldap.name }}
         envFrom:
         - configMapRef:
-            name: {{ .Release.Namespace }}-env-vars
-        - configMapRef:
             name: {{ include "pingdirectory.fullname" . }}-env-vars
+        - configMapRef:
+            name: {{ .Release.Name }}-env-vars
         - secretRef:
             name: {{ include "pingdirectory.fullname" . }}-devops-secret
             optional: true

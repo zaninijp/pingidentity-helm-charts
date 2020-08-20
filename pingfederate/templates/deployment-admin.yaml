@@ -58,9 +58,9 @@ spec:
         {{ end }}
         envFrom:
         - configMapRef:
-            name: {{ .Release.Namespace }}-env-vars
-        - configMapRef:
             name: {{ include "pingfederate.fullname" . }}-env-vars
+        - configMapRef:
+            name: {{ .Release.Name }}-env-vars
         - secretRef:
             name: {{ include "pingfederate.fullname" . }}-devops-secret
             optional: true

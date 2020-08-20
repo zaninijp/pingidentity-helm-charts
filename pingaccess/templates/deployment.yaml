@@ -37,9 +37,9 @@ spec:
           name: {{ .Values.service.runtime.name }}
         envFrom:
         - configMapRef:
-            name: {{ .Release.Namespace }}-env-vars
-        - configMapRef:
             name: {{ include "pingaccess.fullname" . }}-env-vars
+        - configMapRef:
+            name: {{ .Release.Name }}-env-vars
         - secretRef:
             name: {{ include "pingaccess.fullname" . }}-devops-secret
             optional: true
