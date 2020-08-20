@@ -5,7 +5,7 @@ global:
   devOpsKey: 
     user: "Your Ping DevOps Username"
     key: "Your Ping DevOps Key"
-  acceptEULA: "YES"
+  acceptEULA: true
   # Ping Global Values
   PING_IDENTITY_PASSWORD: "Global Ping Password"
   # Admin Console OIDC -- Configured for Compass
