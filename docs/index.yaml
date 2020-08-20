@@ -3,7 +3,7 @@ entries:
   customer360:
   - apiVersion: v2
     appVersion: 2.0.0
-    created: "2020-08-20T15:16:00.797761-07:00"
+    created: "2020-08-20T15:20:33.298942-07:00"
     dependencies:
     - name: pingdirectory
       repository: '@pingidentity-cp'
@@ -15,38 +15,18 @@ entries:
       repository: '@pingidentity-cp'
       version: ^0.1.2
     description: A Helm chart to deploy Ping Customer360 into a Kubernetes cluster
-    digest: 4124195dfa2e8ea14f97e71c81857b36aba3244bb6d8d510ca0f8abb634cb171
+    digest: 0dacb16c3d507f601e1ae30501f226553da54ad8b30d82e0e1e69fcaf84c45df
     name: customer360
     type: application
     urls:
     - customer360-0.1.1.tgz
     version: 0.1.1
-  - apiVersion: v2
-    appVersion: 2.0.0
-    created: "2020-08-20T15:16:00.794806-07:00"
-    dependencies:
-    - name: pingdirectory
-      repository: '@pingidentity-cp'
-      version: ~0.1.2
-    - name: pingfederate
-      repository: '@pingidentity-cp'
-      version: ~0.3.0
-    - name: pingaccess
-      repository: '@pingidentity-cp'
-      version: ~0.1.0
-    description: A Helm chart to deploy Ping Customer360 into a Kubernetes cluster
-    digest: 7c572d22a7761d0a7107cc881d70329c9ff850f73bbf39d06bb9539d5f0a6ba1
-    name: customer360
-    type: application
-    urls:
-    - customer360-0.1.0.tgz
-    version: 0.1.0
   pingaccess:
   - apiVersion: v1
     appVersion: 6.1.0
-    created: "2020-08-20T15:16:00.799062-07:00"
+    created: "2020-08-20T15:20:33.29959-07:00"
     description: A Sample PingAccess Helm chart
-    digest: 60a2c19585dbf4cd21fc0e3624eb70bf4cb25944b5a2ce4d8a95d0281bf25662
+    digest: b0bdd4b8a40df0088f93dd30bfcc9ddae346d5c1c83d6f9fb1d15aea0112f1dc
     home: https://www.pingidentity.com/
     name: pingaccess
     sources:
@@ -56,26 +36,12 @@ entries:
     urls:
     - pingaccess-0.1.2.tgz
     version: 0.1.2
-  - apiVersion: v1
-    appVersion: 6.1.0
-    created: "2020-08-20T15:16:00.798427-07:00"
-    description: A Sample PingAccess Helm chart
-    digest: d33f813fded5fb60048fa46f45b8901c783cddffa10375744d05beef0a8c9be2
-    home: https://www.pingidentity.com/
-    name: pingaccess
-    sources:
-    - https://github.com/patrickcping/pingidentity-helm-charts
-    - https://github.com/pingidentity/pingidentity-docker-builds
-    - https://github.com/pingidentity/pingidentity-server-profiles
-    urls:
-    - pingaccess-0.1.1.tgz
-    version: 0.1.1
   pingdirectory:
   - apiVersion: v1
     appVersion: 8.1.0
-    created: "2020-08-20T15:16:00.799761-07:00"
+    created: "2020-08-20T15:20:33.300281-07:00"
     description: A Sample PingDirectory Helm chart
-    digest: 8cb56df381549a304d32cee28fadccc4af435be9b11dee9063ae104b749ccec7
+    digest: 51b11820b5bcdbffc945bb7dcf1a1237623766361baeb814e2cbdd211286f47f
     home: https://www.pingidentity.com/
     name: pingdirectory
     sources:
@@ -88,9 +54,9 @@ entries:
   pingfederate:
   - apiVersion: v1
     appVersion: 10.1.0
-    created: "2020-08-20T15:16:00.801445-07:00"
+    created: "2020-08-20T15:20:33.301168-07:00"
     description: A Sample PingFederate Helm chart with clustering
-    digest: 29a6237503623d021f06fbec79b5762f1650f97efdf0a00669482e1b00949b2f
+    digest: de216d30bdee4f2df36766552d9363fca499c8e49a1cfc584a8d45de1c5331d9
     home: https://www.pingidentity.com/
     name: pingfederate
     sources:
@@ -100,18 +66,4 @@ entries:
     urls:
     - pingfederate-0.3.2.tgz
     version: 0.3.2
-  - apiVersion: v1
-    appVersion: 10.1.0
-    created: "2020-08-20T15:16:00.800593-07:00"
-    description: A Sample PingFederate Helm chart with clustering
-    digest: da38332daa24561325d1006d9c0cf6ee76af92ea338040521624b293363cb8a5
-    home: https://www.pingidentity.com/
-    name: pingfederate
-    sources:
-    - https://github.com/cprice-ping/pingidentity-helm-charts
-    - https://github.com/pingidentity/pingidentity-docker-builds
-    - https://github.com/pingidentity/pingidentity-server-profiles
-    urls:
-    - pingfederate-0.3.1.tgz
-    version: 0.3.1
-generated: "2020-08-20T15:16:00.791971-07:00"
+generated: "2020-08-20T15:20:33.295687-07:00"
