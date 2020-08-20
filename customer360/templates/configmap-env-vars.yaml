@@ -3,7 +3,9 @@ kind: ConfigMap
 metadata:
   name: "{{ .Release.Namespace }}-env-vars"
 data:
-  ADMIN_CLIENT_AUTHZ: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/authorize"
-  ADMIN_CLIENT_TOKEN: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/token"
-  ADMIN_CLIENT_USERINFO: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/userinfo"
-  ADMIN_CLIENT_LOGOFF: "{{ .Values.global.ADMIN_CLIENT_ISSUER }}/as/signoff"
+  ADMIN_CLIENT_AUTHZ: "{{ .Values.global.compassOIDC.issuer }}/as/authorize"
+  ADMIN_CLIENT_TOKEN: "{{ .Values.global.compassOIDC.issuer }}/as/token"
+  ADMIN_CLIENT_USERINFO: "{{ .Values.global.compassOIDC.issuer }}/as/userinfo"
+  ADMIN_CLIENT_LOGOFF: "{{ .Values.global.compassOIDC.issuer }}/as/signoff"
+  USER_BASE_DN: {{ .Values.global.USER_BASE_DN | quote }}
+  PF_BASE_URL: "https://{{ .Values.global.VIRTUAL_HOSTNAME }}"
