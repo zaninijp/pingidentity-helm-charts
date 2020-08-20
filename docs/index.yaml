@@ -3,7 +3,7 @@ entries:
   customer360:
   - apiVersion: v2
     appVersion: 2.0.0
-    created: "2020-08-20T12:38:00.605594-07:00"
+    created: "2020-08-20T13:26:20.945979-07:00"
     dependencies:
     - name: pingdirectory
       repository: '@pingidentity-cp'
@@ -15,7 +15,7 @@ entries:
       repository: '@pingidentity-cp'
       version: ~0.1.0
     description: A Helm chart to deploy Ping Customer360 into a Kubernetes cluster
-    digest: ce0c426b136576dba7ce3db7ab35d8a4cd55cb4b14f697e2a97698a36d9a9188
+    digest: 7f4d9f176e4c852eec3bba55c807f0a552db6c251310a346fd821b630ac37b45
     name: customer360
     type: application
     urls:
@@ -24,9 +24,9 @@ entries:
   pingaccess:
   - apiVersion: v1
     appVersion: 6.1.0
-    created: "2020-08-20T12:38:00.606365-07:00"
+    created: "2020-08-20T13:26:20.94671-07:00"
     description: A Sample PingAccess Helm chart
-    digest: d3bb19e62dbda7a41ff1581fb9251ad67b121e7058015c0a63883fc1b5980232
+    digest: 030cefd2a3f25cb076d8e02a464f4205f6060428448fb81cfa59c629de13e88d
     home: https://www.pingidentity.com/
     name: pingaccess
     sources:
@@ -39,7 +39,7 @@ entries:
   pingdirectory:
   - apiVersion: v1
     appVersion: 8.1.0
-    created: "2020-08-20T12:38:00.607546-07:00"
+    created: "2020-08-20T13:26:20.949121-07:00"
     description: A Sample PingDirectory Helm chart
     digest: 8cb56df381549a304d32cee28fadccc4af435be9b11dee9063ae104b749ccec7
     home: https://www.pingidentity.com/
@@ -54,9 +54,9 @@ entries:
   pingfederate:
   - apiVersion: v1
     appVersion: 10.1.0
-    created: "2020-08-20T12:38:00.608489-07:00"
+    created: "2020-08-20T13:26:20.949993-07:00"
     description: A Sample PingFederate Helm chart with clustering
-    digest: 74ac2ff3efee1ed32817b01507064669e10761a61c942a959396f87fbe7feaf3
+    digest: dd49aab997b3243a97c2fb4ac747de54af8d37b53cfbb60a46af9a870aebdaad
     home: https://www.pingidentity.com/
     name: pingfederate
     sources:
@@ -66,4 +66,4 @@ entries:
     urls:
     - pingfederate-0.3.1.tgz
     version: 0.3.1
-generated: "2020-08-20T12:38:00.600939-07:00"
+generated: "2020-08-20T13:26:20.941055-07:00"
