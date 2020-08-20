@@ -46,7 +46,6 @@ pingfederate:
       # PingFed Chart uses a PARENT - these lines remove it
       SERVER_PROFILE_PARENT: ""
       # Used for the OIDC SSO - `redirect_uri` will be set to https://PF_ADMIN_HOSTNAME:PF_ADMIN_PORT
-      PF_ADMIN_PORT: "9999"
       PF_ADMIN_MODE: "LDAP"
   logging: INFO
   persistentvolume:
