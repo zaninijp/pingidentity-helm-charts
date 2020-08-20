@@ -51,7 +51,7 @@ pingfederate:
   persistentvolume:
     enabled: false
   license:
-    #useDevOpsKey: true
+    # Used if `useDevOpsKey` set to false
     licenseSecretName: pingfederate-license
   service:
     type: ClusterIP
@@ -69,8 +69,8 @@ pingaccess:
       SERVER_PROFILE_URL: ""
       SERVER_PROFILE_PATH: ""
       SERVER_PROFILE_BRANCH: ""
-
   license:
+    # Used if `useDevOpsKey` set to false
     licenseSecretName: pingaccess-license
 
 # PingCentral -- configures OIDC logon automatically
