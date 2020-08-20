@@ -15,9 +15,9 @@ dependencies:
 - name: pingdirectory
   version: ^0.1.4
   repository: "@pingidentity-cp"
-- name: pingfederate
-  version: ^0.3.2
-  repository: "@pingidentity-cp"
-- name: pingaccess
-  version: ^0.1.2
-  repository: "@pingidentity-cp"
+#- name: pingfederate
+#  version: ^0.3.2
+#  repository: "@pingidentity-cp"
+#- name: pingaccess
+#  version: ^0.1.2
+#  repository: "@pingidentity-cp"
