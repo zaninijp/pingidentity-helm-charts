@@ -9,4 +9,4 @@ data:
   ADMIN_CLIENT_LOGOFF: "{{ .Values.global.compassOIDC.issuer }}/as/signoff"
   USER_BASE_DN: {{ .Values.global.USER_BASE_DN | quote }}
   PF_BASE_URL: "https://{{ .Values.global.VIRTUAL_HOSTNAME }}"
-  PF_ADMIN_PORT: {{ .Values.pingfederate.pingfederate.service.admin.port }}
+  PF_ADMIN_PORT: {{ .Values.pingfederate.service.admin.port }}
