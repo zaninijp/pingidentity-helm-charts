@@ -10,7 +10,7 @@ data:
         "values": [
             {
                 "key": "pfAdminURL",
-                "value": "https://{{ .Release.Name }}-pingfederate:{{ .Values.pingfederate.envs.PF_ADMIN_PORT }}",
+                "value": "https://{{ .Release.Name }}-pingfederate:{{ .Values.pingfederate.service.admin.port }}",
                 "enabled": true
             },
             {
