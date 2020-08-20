@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "{{ .Release.Namespace }}-env-vars"
+  name: "1-{{ .Release.Namespace }}-env-vars"
 data:
   ADMIN_CLIENT_AUTHZ: "{{ .Values.global.compassOIDC.issuer }}/as/authorize"
   ADMIN_CLIENT_TOKEN: "{{ .Values.global.compassOIDC.issuer }}/as/token"
