@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   name: {{ include "pingdirectory.fullname" . }}-env-vars
 data:
-  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.acceptEULA | quote  }}
+  PING_IDENTITY_ACCEPT_EULA: {{ .Values.testing.acceptEULA | quote  }}
   PD_LOG_LEVEL: {{ .Values.pingdirectory.logging | quote }}
 {{ toYaml .Values.pingdirectory.envs | indent 2 }}
-{{ toYaml .Values.global | indent 2 }}
+{{ toYaml .Values.testing | indent 2 }}

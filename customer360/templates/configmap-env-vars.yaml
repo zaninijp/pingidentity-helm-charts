@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-env-vars
 data:
-  ADMIN_CLIENT_AUTHZ: "{{ .Values.global.compassOIDC.issuer }}/as/authorize"
-  ADMIN_CLIENT_TOKEN: "{{ .Values.global.compassOIDC.issuer }}/as/token"
-  ADMIN_CLIENT_USERINFO: "{{ .Values.global.compassOIDC.issuer }}/as/userinfo"
-  ADMIN_CLIENT_LOGOFF: "{{ .Values.global.compassOIDC.issuer }}/as/signoff"
-  USER_BASE_DN: {{ .Values.global.USER_BASE_DN | quote }}
-  PF_BASE_URL: "https://{{ .Values.global.VIRTUAL_HOSTNAME }}"
+  #ADMIN_CLIENT_AUTHZ: "{{ .Values.testing.compassOIDC.issuer }}/as/authorize"
+  #ADMIN_CLIENT_TOKEN: "{{ .Values.testing.compassOIDC.issuer }}/as/token"
+  #ADMIN_CLIENT_USERINFO: "{{ .Values.testing.compassOIDC.issuer }}/as/userinfo"
+  #ADMIN_CLIENT_LOGOFF: "{{ .Values.testing.compassOIDC.issuer }}/as/signoff"
+  USER_BASE_DN: {{ .Values.testing.USER_BASE_DN | quote }}
+  PF_BASE_URL: "https://{{ .Values.testing.VIRTUAL_HOSTNAME }}"
   PF_ADMIN_PORT: {{ .Values.pingfederate.service.admin.port | quote }}
-  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.acceptEULA | quote }}
+  PING_IDENTITY_ACCEPT_EULA: {{ .Values.testing.acceptEULA | quote }}

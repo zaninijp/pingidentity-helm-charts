@@ -3,7 +3,7 @@ entries:
   customer360:
   - apiVersion: v2
     appVersion: 2.0.0
-    created: "2020-08-20T17:04:08.335631-07:00"
+    created: "2020-08-20T17:33:21.409025-07:00"
     dependencies:
     - name: pingdirectory
       repository: '@pingidentity-cp'
@@ -15,4 +15,19 @@ entries:
     urls:
     - customer360-0.1.1.tgz
     version: 0.1.1
-generated: "2020-08-20T17:04:08.334013-07:00"
+  pingdirectory:
+  - apiVersion: v1
+    appVersion: 8.1.0
+    created: "2020-08-20T17:33:21.409699-07:00"
+    description: A Sample PingDirectory Helm chart
+    digest: 79390355a335a823d345bb72e791d5d46e7f76b3a7238c3eb11c2130a32adb60
+    home: https://www.pingidentity.com/
+    name: pingdirectory
+    sources:
+    - https://github.com/cprice-ping/pingidentity-helm-charts
+    - https://github.com/pingidentity/pingidentity-docker-builds
+    - https://github.com/pingidentity/pingidentity-server-profiles
+    urls:
+    - pingdirectory-0.1.4.tgz
+    version: 0.1.4
+generated: "2020-08-20T17:33:21.406686-07:00"
