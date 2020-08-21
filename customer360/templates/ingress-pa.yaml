@@ -8,7 +8,7 @@ metadata:
   name: {{ .Release.Name }}-pingaccess-ingress
 spec:
   rules:
-  - host: {{ .Values.testing.VIRTUAL_HOSTNAME }}
+  - host: {{ .Values.global.VIRTUAL_HOSTNAME }}
     http:
       paths:
       - path: /.well-known/acme-challenge/
