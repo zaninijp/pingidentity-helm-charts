@@ -15,7 +15,7 @@ data:
             },
             {
                 "key": "pfBaseURL",
-                "value": "https://{{ .Values.testing.VIRTUAL_HOSTNAME }}",
+                "value": "https://{{ .Values.global.VIRTUAL_HOSTNAME }}",
                 "enabled": true
             },
             {
@@ -25,7 +25,7 @@ data:
             },
             {
                 "key": "sdkAppId",
-                "value": {{ .Values.testing.PINGIDSDK_APPID | quote }},
+                "value": {{ .Values.global.PINGIDSDK_APPID | quote }},
                 "enabled": true
             }
         ],
