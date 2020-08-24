@@ -10,7 +10,7 @@ data:
         "values": [
             {
                 "key": "pfAdminURL",
-                "value": "https://{{ .Release.Name }}-pingfederate:{{ .Values.pingfederate.service.admin.port }}",
+                "value": "https://{{ .Release.Name }}-pingfederate",
                 "enabled": true
             },
             {
@@ -26,6 +26,21 @@ data:
             {
                 "key": "sdkAppId",
                 "value": {{ .Values.global.PINGIDSDK_APPID | quote }},
+                "enabled": true
+            },
+            {
+                "key": "paAdminURL",
+                "value": "https://{{ .Release.Name }}-pingaccess:9000",
+                "enabled": true
+            },
+            {
+                "key": "paVirtualHost",
+                "value": {{ .Values.global.VIRTUAL_HOSTNAME | quote }},
+                "enabled": true
+            },
+            {
+                "key": "pdsAdminURL",
+                "value": "https://{{ .Release.Name }}-pingdatasync",
                 "enabled": true
             }
         ],

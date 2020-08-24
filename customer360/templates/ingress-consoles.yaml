@@ -16,21 +16,21 @@ spec:
     http:
       paths:
        - backend:
-           serviceName: pingaccess
+           serviceName: {{ .Release.Name }}-pingaccess
            servicePort: 9000
   # This rule gives external access to the PingFederate Admin Console
   - host: pingfederate-{{ .Release.Namespace }}.ping-devops.com
     http:
       paths:
        - backend:
-          serviceName: pingfederate
-          servicePort: {{ .Values.pingfederate.service.admin.port }}
+          serviceName: {{ .Release.Name }}-pingfederate
+          servicePort: 443
   # This rule gives external access to the PingData Admin Console
   - host: pingdataconsole-{{ .Release.Namespace }}.ping-devops.com
     http:
       paths:
        - backend:
-          serviceName: pingdataconsole
+          serviceName: {{ .Release.Name }}-pingdataconsole
           servicePort: 8443
   # This rule gives external access to the PingDataGovernance-PAP Admin Console
   - host: pingdatagov-pap-{{ .Release.Namespace }}.ping-devops.com
@@ -44,7 +44,7 @@ spec:
     http:
       paths:
        - backend:
-          serviceName: pingcentral
+          serviceName: {{ .Release.Name }}-pingcentral
           servicePort: 9022
   # This rule gives external access to the PingDirectory ConfigAPI
   - host: pingdirectory-{{ .Release.Namespace }}.ping-devops.com
