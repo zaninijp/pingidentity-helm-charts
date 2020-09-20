@@ -34,6 +34,12 @@ Note: These charts are development / POC quality and originally put together as 
 | PingDataGovernance PAP | Product | Fine-grain Authz PAP | Not available | N/a |
 | PingDirectoryProxy | Product | Directory Proxy | Not available | N/a |
 
+## Install Helm
+
+```shell
+brew install helm
+```
+
 ## Add the Repository
 
 ```shell
