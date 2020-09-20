@@ -117,3 +117,15 @@ pingfederate:
 ## Waiting for dependent services
 
 For an example of waiting for a dependent service, such as PingDirectory, see the example [here](https://github.com/patrickcping/ping-helm-kustomize-example)
+
+## Adding Use Cases
+You can use Helm to add additional configs to Customer360 - this may be another API collection, or additional Products.
+
+While these are seen as a separate deployment, the Charts can be pointed to the proper C360 Release with the `--set releaseName={{releaseName}}` flag.
+
+For example:
+
+```shell
+helm chart export pingsolutions.azurecr.io/helm/consentmanagement:latest .
+helm install cpricelab-consent ./consentmanagement/ --set releaseName=cpricelab -f values.yaml
+```
