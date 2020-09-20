@@ -1,0 +1,12 @@
+apiVersion: v1
+appVersion: "8.1.0"
+description: A Sample PingDataSync Helm chart - CPrice edits
+name: pingdatasync
+# v0.0.1 - Initial chart
+# v0.0.2 - removing persistentVolumeMount (residual from PD copy)
+version: 0.0.2
+home: https://www.pingidentity.com/
+sources:
+- https://github.com/cprice-ping/pingidentity-helm-charts
+- https://github.com/pingidentity/pingidentity-docker-builds
+- https://github.com/pingidentity/pingidentity-server-profiles

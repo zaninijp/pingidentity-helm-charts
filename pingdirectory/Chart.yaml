@@ -2,7 +2,12 @@ apiVersion: v1
 appVersion: "8.1.0"
 description: A Sample PingDirectory Helm chart - CPrice edits
 name: pingdirectory
-version: 0.0.1
+# v0.0.4 - Commented out customName from values.yaml
+# v0.0.5 - Removed customName from values and service yamls
+# v0.0.6 - Added API port in `statefulset` and `service`
+# v0.0.7 - updating Version
+# v0.0.8 - Debug PD API Port
+version: 0.0.8
 home: https://www.pingidentity.com/
 sources:
 - https://github.com/cprice-ping/pingidentity-helm-charts

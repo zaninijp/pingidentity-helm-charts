@@ -17,9 +17,8 @@ pingdirectory:
 
   envs:
     SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git 
-    SERVER_PROFILE_PATH: getting-started/pingdirectory
+    SERVER_PROFILE_PATH: baseline/pingdirectory
     SERVER_PROFILE_BRANCH: master
-    MAX_HEAP_SIZE: 768m
   
 license:
   acceptEULA: false
@@ -34,7 +33,6 @@ nameOverride: ""
 fullnameOverride: ""
 
 service:
-  customName: pingdirectory
   type: ClusterIP
   https:
     port: 443
@@ -45,6 +43,10 @@ service:
   ldap:
     port: 389
     name: ldap
+  # Non-ConfigAPIs are moved in C360
+  apis:
+    port: 2443
+    name: apis
 
 persistentvolume:
   enabled: true

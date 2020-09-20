@@ -1,0 +1,84 @@
+# Default values for pingdatasync.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: pingidentity
+  name: pingdatasync
+  tag: latest
+  pullPolicy: IfNotPresent
+  readinessCommand: /opt/liveness.sh
+  livenessCommand: /opt/liveness.sh
+
+pingdatasync:
+  logging: INFO
+
+  envs:
+    SERVER_PROFILE_URL: https://github.com/pingidentity/pingidentity-server-profiles.git 
+    SERVER_PROFILE_PATH: getting-started/pingdatasync
+  
+license:
+  acceptEULA: false
+  licenseSecretName: pingdatasync-license
+  # Using the devops key is best suited to development or sandbox environments.  In other cases create a license secret
+  useDevOpsKey: false
+  devOpsKey:
+    user: 
+    key: 
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  https:
+    port: 443
+    name: https
+  ldaps:
+    port: 636
+    name: ldaps
+  ldap:
+    port: 389
+    name: ldap
+
+persistentvolume:
+  enabled: true
+  storage: 8Gi
+  storageClassName: standard
+
+ingress:
+  enabled: false
+  # annotations:
+  #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  #   kubernetes.io/ingress.class: "nginx-public"
+
+  # hosts:
+  #   - host: my.host.pingdata.host.com
+  #     paths:
+  #     - path: /
+  #       backend:
+  #         servicePort: 443
+
+  # The following section adds TLS specific configuration for the ingress descriptor.  Example:
+  # tls:
+  #   - secretName: tls-secret
+  #     hosts:
+  #       - my.host.pingdata.host.com
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 1.5
+  #   memory: 2Gi
+  # requests:
+  #   cpu: 1.5
+  #   memory: 2Gi
+
+nodeSelector: {}
+
+tolerations: []

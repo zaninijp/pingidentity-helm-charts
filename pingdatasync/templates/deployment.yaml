@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "pingdatasync.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "pingdatasync.name" . }}
+    helm.sh/chart: {{ include "pingdatasync.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "pingdatasync.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "pingdatasync.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 300
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        {{- if not .Values.global.license.useDevOpsKey }}
+        volumeMounts:
+        - name: license
+          mountPath: /opt/in/instance/pingdatasync.lic
+          subPath: pingdatasync.lic
+        {{- end }}
+        ports:
+        - containerPort: {{ .Values.service.https.port }}
+          name: {{ .Values.service.https.name }}
+        - containerPort: {{ .Values.service.ldaps.port }}
+          name: {{ .Values.service.ldaps.name }}
+        - containerPort: {{ .Values.service.ldap.port }}
+          name: {{ .Values.service.ldap.name }}
+        envFrom:
+        - configMapRef:
+            name: {{ include "pingdatasync.fullname" . }}-env-vars
+        - configMapRef:
+            name: {{ .Release.Name }}-env-vars
+        - secretRef:
+            name: {{ include "pingdatasync.fullname" . }}-devops-secret
+            optional: true
+        - secretRef:
+            name: {{ include "pingdatasync.fullname" . }}-git-secret
+            optional: true
+        readinessProbe:
+          exec:
+            command: [ {{ .Values.image.readinessCommand }} ]
+          initialDelaySeconds: 300
+          periodSeconds: 30
+        livenessProbe:
+          exec:
+            command: [ {{ .Values.image.livenessCommand }} ]
+          initialDelaySeconds: 300
+          periodSeconds: 30
+      {{- if not .Values.global.license.useDevOpsKey }}
+      - name: license
+        secret:
+          secretName: {{ .Values.license.licenseSecretName }}
+      {{- end }}

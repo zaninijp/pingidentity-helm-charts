@@ -23,7 +23,7 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{ if not .Values.license.useDevOpsKey }}
+        {{ if not .Values.global.license.useDevOpsKey }}
         volumeMounts:
         - name: license
           mountPath: /opt/in/instance/conf/pingcentral.lic
@@ -33,6 +33,8 @@ spec:
         - containerPort: {{ .Values.service.https.port }}
           name: {{ .Values.service.https.name }}
         envFrom:
+        - configMapRef:
+            name: {{ .Release.Name }}-env-vars
         - configMapRef:
             name: {{ include "pingcentral.fullname" . }}-env-vars
         - secretRef:
@@ -49,7 +51,7 @@ spec:
         livenessProbe:
           exec:
             command: [ {{ .Values.image.livenessCommand }} ]
-          initialDelaySeconds: 30
+          initialDelaySeconds: 300
           periodSeconds: 30
     {{- if .Values.resources }}
         resources:
@@ -63,7 +65,7 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
     {{- end }}
-    {{- if not .Values.license.useDevOpsKey }}
+    {{- if not .Values.global.license.useDevOpsKey }}
       volumes:
       - name: license
         secret:

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: {{ include "pingdatasync.name" . }}
+    helm.sh/chart: {{ include "pingdatasync.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: {{ include "pingdatasync.fullname" . }}-env-vars
+data:
+  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.license.acceptEULA | quote  }}
+  PD_LOG_LEVEL: {{ .Values.pingdatasync.logging | quote }}
+{{ toYaml .Values.pingdatasync.envs | indent 2 }}
+{{ toYaml .Values.global.envs | indent 2 }}

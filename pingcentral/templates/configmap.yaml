@@ -15,8 +15,14 @@ data:
   MYSQL_SERVICE_PORT: {{ .Values.mysql.service.port | quote }}
   MYSQL_DATABASE: {{ .Values.mysql.db.name | quote }}
 {{- end }}
-  PING_IDENTITY_ACCEPT_EULA: {{ .Values.license.acceptEULA | quote  }}
+  {{- if eq .Values.global.envs.PC_ADMIN_MODE "OIDC" }}
+  PING_CENTRAL_OIDC_ENABLED: "true"
+  {{- else }}
+  PING_CENTRAL_OIDC_ENABLED: "false"
+  {{- end }}
+  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.license.acceptEULA | quote }}
   PING_CENTRAL_LOG_LEVEL: {{ .Values.pingcentral.logging | quote }}
   PING_CENTRAL_BLIND_TRUST: {{ .Values.pingcentral.tlsBlindTrust | quote }}
   PING_CENTRAL_VERIFY_HOSTNAME: {{ .Values.pingcentral.tlsVerifyHostnames | quote }}
 {{ toYaml .Values.pingcentral.envs | indent 2 }}
+{{ toYaml .Values.global.envs | indent 2 }}

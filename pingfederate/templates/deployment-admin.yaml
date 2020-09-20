@@ -7,7 +7,6 @@ metadata:
     helm.sh/chart: {{ include "pingfederate.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-    ping-useDevOps: {{ .Values.global.useDevOpsKey }}
 spec:
   replicas: 1
   selector:
@@ -28,7 +27,7 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{ if not .Values.global.useDevOpsKey }}
+        {{ if not .Values.global.license.useDevOpsKey }}
         volumeMounts:
         - name: license
           mountPath: /opt/in/instance/server/default/conf/pingfederate.lic
@@ -89,7 +88,7 @@ spec:
       tolerations:
 {{ toYaml .Values.admin.tolerations | indent 8 }}
     {{- end }}
-    {{- if not .Values.global.useDevOpsKey }}
+    {{- if not .Values.global.license.useDevOpsKey }}
       volumes:
       - name: license
         secret:

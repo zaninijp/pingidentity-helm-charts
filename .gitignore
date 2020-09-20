@@ -3,4 +3,5 @@ pingaccess.lic
 PingDirectory.lic
 .DS_Store
 *.properties
-docs/values.yaml
+**/test-values.yaml
+/docs

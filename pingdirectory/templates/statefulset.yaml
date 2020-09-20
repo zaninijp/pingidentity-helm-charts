@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  serviceName: {{ if .Values.service.customName }}{{ .Values.service.customName }}{{- else }}{{ include "pingdirectory.fullname" . }}{{- end }}
+  serviceName: {{ include "pingdirectory.fullname" . }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
@@ -28,14 +28,14 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{- if or (.Values.persistentvolume.enabled) (not .Values.global.useDevOpsKey) }}
+        {{- if or (.Values.persistentvolume.enabled) (not .Values.global.license.useDevOpsKey) }}
         volumeMounts:
         {{- end }}
         {{- if .Values.persistentvolume.enabled }}
         - name: out-dir-{{ .Release.Name }}-{{ .Release.Revision }}
           mountPath: /opt/out
         {{- end }}
-        {{- if not .Values.global.useDevOpsKey }}
+        {{- if not .Values.global.license.useDevOpsKey }}
         - name: license
           mountPath: /opt/in/instance/pingdirectory.lic
           subPath: pingdirectory.lic
@@ -47,6 +47,10 @@ spec:
           name: {{ .Values.service.ldaps.name }}
         - containerPort: {{ .Values.service.ldap.port }}
           name: {{ .Values.service.ldap.name }}
+        {{- if .Values.service.apis.port }}
+        - containerPort: {{ .Values.service.apis.port }}
+          name: {{ .Values.service.apis.name }}
+        {{- end }}
         envFrom:
         - configMapRef:
             name: {{ include "pingdirectory.fullname" . }}-env-vars
@@ -80,7 +84,7 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
     {{- end }}
-    {{- if or (.Values.persistentvolume.enabled) (not .Values.global.useDevOpsKey) }}
+    {{- if or (.Values.persistentvolume.enabled) (not .Values.global.license.useDevOpsKey) }}
       volumes:
       {{- end }}
       {{- if .Values.persistentvolume.enabled }}
@@ -88,7 +92,7 @@ spec:
         persistentVolumeClaim:
           claimName: out-dir-{{ .Release.Name }}-{{ .Release.Revision }}
       {{- end }}
-      {{- if not .Values.global.useDevOpsKey }}
+      {{- if not .Values.global.license.useDevOpsKey }}
       - name: license
         secret:
           secretName: {{ .Values.license.licenseSecretName }}

@@ -1,0 +1,58 @@
+# Default values for Customer360.
+global:
+  # Variables used to determine licensing for the stack
+  license:
+    # If set to false, licenses must be mounted as secrets for each Product
+    useDevOpsKey: true
+    # If set to true - supply your Ping DevOps information
+    devOpsKey:
+      user: "YourDevOpsUser"
+      key: "YourDevOpsKey"
+    # Accept the Ping EULA -- "YES" (default) | "NO" (Note: this will not allow Products to launch)
+    acceptEULA: "YES"
+
+  # Your specific environment variables - values are injected into Server Profiles
+  envs:
+    # Ping Global Values
+    PING_IDENTITY_PASSWORD: "Your Global Ping Password"
+    # Admin Consoles OIDC -- Ideally configured for Compass
+    ## Issuer of OIDC Provider
+    oidcIssuer: "Your Admin SSO Client_Issuer"
+    ## OIDC AuthN Client ID
+    oidcClientId: "Your Admin SSO Client_ID"
+    ## OIDC AuthN Client Secret
+    oidcClientSecret: "Your Admin SSO Client_Secret"
+
+    # PingFed Variables
+
+    # PD Variables
+    ## BaseDN of the datastore
+    USER_BASE_DN: "Your PD Base DN"
+
+    # Admin Consoles Logon
+    ## PingFed - "OIDC" (default) | "LDAP" | "native"
+    PF_ADMIN_MODE: "OIDC"
+    ## PingCentral - "OIDC" (default) | "native"
+    PC_ADMIN_MODE: "OIDC"
+  
+  # Client Connection settings
+  clientConnection:
+    ## Set TRUSTED_CERT to `true` if you want a Let's Encrypt Cert
+    ## (Leave to `false` while testing - so you don't trip LE rate limits)
+    useTrustedCert: false
+    # Deployment External Hostname (Used by Ingress-Client and PA)
+    externalHostname: "YourFQDNforDeployment"
+
+  # PingOne Service Details
+  # Customer360 configures PingOne Services that are part of the Solution
+  # The stack will install without this configuration, but the AuthN Adapters will heve to be manually configured
+  pingOne:
+    usePingOneServices: true
+    # Defaults to "NA" - "EU" | "ASIA" can be used to override
+    envRegion: "NA"
+    environment:
+      envId: "YourPingOneEnvID"
+      pfWorkerId: "YourPingPlatformWorkerID"
+      pfWorkerSecret: "YourPingPlatformWorkerSecret"
+      mfaAppId: "YourMFAUserAppID"
+      mfaAppSecret: "YourMFAUserAppSecret"

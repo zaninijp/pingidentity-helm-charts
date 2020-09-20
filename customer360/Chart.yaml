@@ -5,7 +5,8 @@ description: A Helm chart to deploy Ping Customer360 into a Kubernetes cluster
 type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
-version: 0.0.4
+# v 0.1.0 - Initial release to repo
+version: 0.1.0
 
 # This is the version number of the application being deployed.
 appVersion: 2.0.0
@@ -13,17 +14,20 @@ appVersion: 2.0.0
 # Use PingIdentity Repo to deploy Product Services \ Deployments
 dependencies:
 - name: pingdirectory
-  version: ~0.1.0
-  repository: "@pingidentity-pc"
+  version: ~0.0.5
+  repository: "@pingidentity-solutions"
+- name: pingdatasync
+  version: ~0.0.1
+  repository: "@pingidentity-solutions"
 - name: pingfederate
-  version: ^0.3.0
-  repository: "@pingidentity-pc"
+  version: ~0.0.1
+  repository: "@pingidentity-solutions"
 - name: pingaccess
-  version: ~0.1.0
-  repository: "@pingidentity-pc"
+  version: ~0.0.5
+  repository: "@pingidentity-solutions"
+- name: pingcentral
+  version: ~0.0.7
+  repository: "@pingidentity-solutions"
 - name: pingdataconsole
   version: ~0.1.0
-  repository: "@pingidentity-pc"
-- name: pingcentral
-  version: ~0.1.0
-  repository: "@pingidentity-pc"
+  repository: "@pingidentity-solutions"

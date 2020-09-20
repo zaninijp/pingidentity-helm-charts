@@ -18,6 +18,10 @@ spec:
       targetPort: {{ .Values.service.runtime.port }}
       protocol: TCP
       name: {{ .Values.service.runtime.name }}
+    - port: {{ .Values.service.acme.port }}
+      targetPort: {{ .Values.service.acme.port }}
+      protocol: TCP
+      name: {{ .Values.service.acme.name }}
   selector:
     app.kubernetes.io/name: {{ include "pingaccess.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

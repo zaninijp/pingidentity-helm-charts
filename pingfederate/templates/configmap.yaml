@@ -8,9 +8,10 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   name: {{ include "pingfederate.fullname" . }}-env-vars
 data:
-  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.acceptEULA | quote  }}
+  PING_IDENTITY_ACCEPT_EULA: {{ .Values.global.license.acceptEULA | quote  }}
   PF_LOG_LEVEL: {{ .Values.pingfederate.logging | quote }}
 {{ toYaml .Values.pingfederate.envs | indent 2 }}
+{{ toYaml .Values.global.envs | indent 2 }}
   {{- if .Values.pingfederate.clustering.enabled }}
   CLUSTER_BIND_ADDRESS: "NON_LOOPBACK"
   CLUSTER_NAME: {{ .Release.Name | quote }}
