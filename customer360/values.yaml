@@ -120,6 +120,13 @@ pingdatasync:
     # Used if `useDevOpsKey` set to false
     licenseSecretName: pingdatasync-license
 
+pingdataconsole:
+  image:
+    tag: latest
+  service:
+    http:
+      port: 8443
+
 pingcentral:
   image:
     tag: latest

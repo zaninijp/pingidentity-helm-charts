@@ -6,7 +6,8 @@ type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
 # v 0.1.0 - Initial release to repo
-version: 0.1.0
+# v 0.1.1 - Adding default PingDataConsole settings (values)
+version: 0.1.1
 
 # This is the version number of the application being deployed.
 appVersion: 2.0.0
