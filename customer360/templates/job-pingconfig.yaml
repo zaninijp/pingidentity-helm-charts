@@ -13,10 +13,9 @@ spec:
       containers:
       - env:
         - name: COLLECTIONS
-          # Customer360 --> PA as Ingress (Needed in Kubernetes)
-          # value: https://www.getpostman.com/collections/f1f5ffff5ddd891e720d,https://www.getpostman.com/collections/eaa397bd3a35ef3095c1
-          value: {{ .Values.pingconfig.collections.value }}
-          # value: {{ .Values.useCaseCollections.customer360 }},https://www.getpostman.com/collections/eaa397bd3a35ef3095c1{{ if .Values.global.useCases.consentManagement }},{{ .Values.useCaseCollections.consentManagement }}{{ end }}{{ if .Values.global.useCases.consentEnforcement }},{{ .Values.useCaseCollections.consentEnforcement }}{{ end }}{{ if .Values.global.useCases.delegatedAdministration }},{{ .Values.useCaseCollections.delegatedAdministration }}{{ end }}
+          # Collections: {{ include "customer360.useCaseNames" . | trimSuffix " : " }}
+          value: {{ include "customer360.useCaseUrls" . | trimSuffix "," }}
+          # value-test: {{ include "customer360.useCaseUrls" . | trimSuffix "," }}
         image: pricecs/pingconfigurator:1.1
         imagePullPolicy: "Always"
         name: pingconfig
@@ -34,4 +33,3 @@ spec:
             path: postman_vars.json
           name: {{ .Release.Name }}-postman
         name: {{ .Release.Name }}-postman
-status: {}

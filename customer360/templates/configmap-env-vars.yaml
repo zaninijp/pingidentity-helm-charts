@@ -19,3 +19,11 @@ data:
   PF_ADMIN_HOSTNAME: "pingfederate-{{ .Release.Name }}.ping-devops.com"
   PF_ADMIN_TITLE: {{ .Release.Name }}
   PF_BASE_URL: {{ .Values.global.clientConnection.externalHostname | quote }}
+  {{- if .Values.global.useCases.delegatedAdministration.enabled }}
+  PD_DELEGATOR_PUBLIC_HOSTNAME: {{ .Values.global.clientConnection.externalHostname | quote }}
+  PF_ENGINE_PUBLIC_HOSTNAME: {{ .Values.global.clientConnection.externalHostname | quote }}
+  PF_ENGINE_PUBLIC_PORT: "443"
+  PF_DELEGATOR_CLIENTID: "Delegator"
+  PD_ENGINE_PUBLIC_HOSTNAME: {{ .Values.global.clientConnection.externalHostname | quote }}
+  PD_ENGINE_PUBLIC_PORT: "443"
+  {{- end }}

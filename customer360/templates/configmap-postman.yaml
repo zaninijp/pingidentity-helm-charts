@@ -67,18 +67,28 @@ data:
                 "key": "pdsAdminURL",
                 "value": "https://{{ .Release.Name }}-pingdatasync",
                 "enabled": true
-            }{{ if .Values.global.pingOne.usePingOneServices }},
+            }{{ if .Values.global.useCases.delegatedAdministration.enabled }},
+            {
+                "key": "delegatorApp",
+                "value": "{{ .Release.Name }}-delegator:{{ .Values.pingdelegator.service.runtime.port }}",
+                "enabled": true
+            },
+            {
+                "key": "delegatorSecure",
+                "value": true,
+                "enabled": true
+            }{{- end}}{{ if .Values.global.pingOne.usePingOneServices }},
             {
                 "key": "pingOneAuthNURL",
                 {{ if eq ( default "NA" .Values.global.pingOne.envRegion ) "EU" }}"value": "https://auth.pingone.eu",
                 {{ else if eq ( default "NA" .Values.global.pingOne.envRegion ) "ASIA" }}"value": "https://auth.pingone.asia",
-                {{ else }}"value": "https://auth.pingone.com",{{ end }}"enabled": true
+                {{ else }}"value": "https://auth.pingone.com",{{- end }}"enabled": true
             },
             {
                 "key": "pingOneMgmtURL",
                 {{ if eq ( default "NA" .Values.global.pingOne.envRegion ) "EU" }}"value": "https://api.pingone.eu",
                 {{ else if eq ( default "NA" .Values.global.pingOne.envRegion ) "ASIA" }}"value": "https://api.pingone.asia",
-                {{ else }}"value": "https://api.pingone.com",{{ end }}"enabled": true
+                {{ else }}"value": "https://api.pingone.com",{{- end }}"enabled": true
             },
             {
                 "key": "pingOneEnvId",
