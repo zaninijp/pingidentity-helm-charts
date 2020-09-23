@@ -81,10 +81,10 @@ Playing with Helper Templates for Use Case processing
 
 {{/* Used to create the Admin Console Client URLs used in Software */}}
 {{- define "customer360.pingOneAdminUrl" }}
-    {{- print "https://auth.pingone." }}{{ include "customer360.pingOneTld" . }}{{ print "/" .Values.global.pingOne.adminConsole.envId }}
+    {{- print "https://auth.pingone." }}{{ include "customer360.pingOneTld" . }}{{ print "/" .Values.global.pingOne.adminConsole.envId "/as" }}
 {{- end }}
 
-{{ /* Used to build the additional URLs passed into the job/pingconfig */}}
+{{/* Used to build the additional URLs passed into the job/pingconfig */}}
 {{- define "customer360.useCaseUrls" -}}
     {{- $useCaseGlobal :=  .Values.global.useCases }}
     {{- $useCaseDetails := .Values.collections.useCases }}

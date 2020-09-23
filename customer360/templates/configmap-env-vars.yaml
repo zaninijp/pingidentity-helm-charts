@@ -12,7 +12,7 @@ data:
   ADMIN_CLIENT_ID: {{ .Values.global.pingOne.adminConsole.adminAppId | quote }}
   ADMIN_CLIENT_SECRET: {{ .Values.global.pingOne.adminConsole.adminAppSecret | quote }}
   ADMIN_CLIENT_ISSUER: {{ include "customer360.pingOneAdminUrl" . | quote }}
-  ADMIN_CLIENT_AUTHZ: "{{ include "customer360.pingOneAdminUrl" . }}/as"
+  ADMIN_CLIENT_AUTHZ: "{{ include "customer360.pingOneAdminUrl" . }}/authorize"
   ADMIN_CLIENT_TOKEN: "{{ include "customer360.pingOneAdminUrl" . }}/token"
   ADMIN_CLIENT_USERINFO: "{{ include "customer360.pingOneAdminUrl" . }}/userinfo"
   ADMIN_CLIENT_LOGOFF: "{{ include "customer360.pingOneAdminUrl" . }}/signoff"
