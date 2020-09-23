@@ -17,15 +17,6 @@ global:
   envs:
     # Ping Global Values
     PING_IDENTITY_PASSWORD: "Your Global Ping Password"
-    # Admin Consoles OIDC -- Ideally configured for Compass
-    ## Issuer of OIDC Provider
-    oidcIssuer: "Your Admin SSO Client_Issuer"
-    ## OIDC AuthN Client ID
-    oidcClientId: "Your Admin SSO Client_ID"
-    ## OIDC AuthN Client Secret
-    oidcClientSecret: "Your Admin SSO Client_Secret"
-
-    # PingFed Variables
 
     # PD Variables
     ## BaseDN of the datastore
@@ -39,11 +30,11 @@ global:
   
   useCases:
     consentManagement: 
-      enabled: true
+      enabled: false
     consentEnforcement: 
       enabled: false
     delegatedAdministration: 
-      enabled: true
+      enabled: false
   
   # Client Connection settings
   clientConnection:
@@ -56,9 +47,14 @@ global:
   # PingOne Service Details
   pingOne:
     # Set to `true` if you are supplying your PingOne details 
-    usePingOneServices: false
+    usePingOneServices: true
+    envRegion: "EU"
+    adminConsole:
+      useCompass: true
+      envId: "YourAdminAuthNEnvId"
+      adminAppId: "YourAdminAuthNApp"
+      adminAppSecret: "YourAdminAuthNSecret"
     environment:
-      envRegion: "NA"
       # PingOne EnvID that PF will be connected to
       envId: "YourP1EnvID"
       # PF Worker App (Configured in Connections --> Ping Platform)

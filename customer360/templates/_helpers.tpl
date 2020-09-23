@@ -66,6 +66,25 @@ Create the name of the service account to use
 Playing with Helper Templates for Use Case processing
 */}}
 
+{{/* Used to put the right TLD on the P1 URLs based on the Region */}}
+{{- define "customer360.pingOneTld" -}}
+    {{ if .Values.global.pingOne.usePingOneServices }}
+        {{- if eq ( default "NA" .Values.global.pingOne.envRegion ) "EU" }}
+            {{- print "eu" }}
+        {{- else if eq ( default "NA" .Values.global.pingOne.envRegion ) "ASIA" }}
+            {{- print "asia" }}
+        {{- else }}
+            {{- print "com" }}
+        {{- end}}
+    {{- end }}
+{{- end }}
+
+{{/* Used to create the Admin Console Client URLs used in Software */}}
+{{- define "customer360.pingOneAdminUrl" }}
+    {{- print "https://auth.pingone." }}{{ include "customer360.pingOneTld" . }}{{ print "/" .Values.global.pingOne.adminConsole.envId }}
+{{- end }}
+
+{{ /* Used to build the additional URLs passed into the job/pingconfig */}}
 {{- define "customer360.useCaseUrls" -}}
     {{- $useCaseGlobal :=  .Values.global.useCases }}
     {{- $useCaseDetails := .Values.collections.useCases }}
@@ -78,6 +97,7 @@ Playing with Helper Templates for Use Case processing
     {{- end }}
 {{- end }}
 
+{{/* Used to build the of the collections URLs passed into the job/pingconfig */}}
 {{- define "customer360.useCaseNames" -}}
     {{- $useCaseGlobal :=  .Values.global.useCases }}
     {{- $useCaseDetails := .Values.collections.useCases }}

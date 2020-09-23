@@ -80,15 +80,13 @@ data:
             }{{- end}}{{ if .Values.global.pingOne.usePingOneServices }},
             {
                 "key": "pingOneAuthNURL",
-                {{ if eq ( default "NA" .Values.global.pingOne.envRegion ) "EU" }}"value": "https://auth.pingone.eu",
-                {{ else if eq ( default "NA" .Values.global.pingOne.envRegion ) "ASIA" }}"value": "https://auth.pingone.asia",
-                {{ else }}"value": "https://auth.pingone.com",{{- end }}"enabled": true
+                "value": "https://auth.pingone.{{ include "customer360.pingOneTld" . }}",
+                "enabled": true
             },
             {
                 "key": "pingOneMgmtURL",
-                {{ if eq ( default "NA" .Values.global.pingOne.envRegion ) "EU" }}"value": "https://api.pingone.eu",
-                {{ else if eq ( default "NA" .Values.global.pingOne.envRegion ) "ASIA" }}"value": "https://api.pingone.asia",
-                {{ else }}"value": "https://api.pingone.com",{{- end }}"enabled": true
+                "value": "https://api.pingone.{{ include "customer360.pingOneTld" . }}",
+                "enabled": true
             },
             {
                 "key": "pingOneEnvId",
